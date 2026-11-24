@@ -1,3 +1,11 @@
+# EspanikkuNX
+
+**Mod de [AnikkuNX](https://github.com/DiGiTaLAnGeL92/AnikkuNX) que corrige el cierre de la app con las fuentes en español.**
+Se instala como una app aparte (`SD:/switch/EspanikkuNX/EspanikkuNX.nro`) y guarda sus datos en `sdmc:/switch/EspanikkuNX`,
+así que puede convivir con AnikkuNX. Todo el mérito del proyecto original es de su autor; ver [CHANGELOG.md](CHANGELOG.md) (0.6.4.1).
+
+---
+
 # AnikkuNX
 
 **A standalone anime streaming app for the Nintendo Switch (homebrew), inspired by [Anikku](https://github.com/komikku-app/anikku) / [Aniyomi](https://github.com/aniyomiorg/aniyomi).**

@@ -4,7 +4,7 @@
 #include <string>
 
 /**
- * Debug interno: piccolo server HTTP sulla rete locale per inviare un nuovo AnikkuNX.nro dal PC
+ * Debug interno: piccolo server HTTP sulla rete locale per inviare un nuovo EspanikkuNX.nro dal PC
  * (pagina web con "scegli file" + codice PIN), senza passare da GitHub.
  * Si attiva tenendo premuti L+R mentre si sceglie "Controlla aggiornamenti".
  */

@@ -14,7 +14,7 @@ namespace api {
 
 using json = nlohmann::json;
 
-/** Da chiamare all'avvio: cartella dei dati (es. sdmc:/switch/AnikkuNX). */
+/** Da chiamare all'avvio: cartella dei dati (es. sdmc:/switch/EspanikkuNX). */
 void init(const std::string& dataDir);
 
 /** Fonti attive (o tutte, con il campo "enabled", se includeDisabled). */

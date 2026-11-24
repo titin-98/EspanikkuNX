@@ -4,7 +4,7 @@
 #include <set>
 #include <string>
 
-/** Impostazioni salvate su scheda SD (sdmc:/switch/AnikkuNX/config.json). */
+/** Impostazioni salvate su scheda SD (sdmc:/switch/EspanikkuNX/config.json). */
 class Config {
   public:
     static Config& instance() {

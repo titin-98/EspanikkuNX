@@ -10,11 +10,12 @@ endif ()
 include(${BOREALIS_LIBRARY}/cmake/commonOption.cmake)
 include(${BOREALIS_LIBRARY}/cmake/toolchain.cmake)
 
-project(AnikkuNX)
+project(EspanikkuNX)
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "6")
 set(VERSION_ALTER "4")
-set(PROJECT_AUTHOR "Marco")
+set(VERSION_MOD "1")  # EspanikkuNX: revisione del mod sopra AnikkuNX 0.6.4
+set(PROJECT_AUTHOR "titin-98, mod de AnikkuNX de Marco")
 set(PROJECT_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/icon.jpg)
 set(PROJECT_RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/resources)
 
@@ -64,16 +65,16 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src ${APP_PLATFORM_INCLUDE})
 target_compile_options(${PROJECT_NAME} PRIVATE -ffunction-sections -fdata-sections ${APP_PLATFORM_OPTION})
 # versione mostrata nelle Impostazioni e repository da cui scaricare gli aggiornamenti
-set(UPDATE_REPO "DiGiTaLAnGeL92/AnikkuNX" CACHE STRING "Repository GitHub delle release")
+set(UPDATE_REPO "titin-98/EspanikkuNX" CACHE STRING "Repository GitHub delle release")
 target_compile_definitions(${PROJECT_NAME} PRIVATE
-    APP_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_ALTER}" UPDATE_REPO="${UPDATE_REPO}")
+    APP_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_ALTER}.${VERSION_MOD}" UPDATE_REPO="${UPDATE_REPO}")
 target_link_libraries(${PROJECT_NAME} PRIVATE borealis gumbo ${APP_PLATFORM_LIB})
 target_link_options(${PROJECT_NAME} PRIVATE ${APP_PLATFORM_LINK_OPTION})
 
 if (PLATFORM_SWITCH)
     add_custom_target(${PROJECT_NAME}.nro ALL
         DEPENDS ${PROJECT_NAME}
-        COMMAND ${NX_NACPTOOL_EXE} --create "Anikku NX" "${PROJECT_AUTHOR}"
+        COMMAND ${NX_NACPTOOL_EXE} --create "EspanikkuNX" "${PROJECT_AUTHOR}"
             "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_ALTER}" ${PROJECT_NAME}.nacp
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_RESOURCES} ${CMAKE_BINARY_DIR}/resources
         # sulla Switch si usa il font di sistema

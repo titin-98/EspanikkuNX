@@ -18,13 +18,13 @@
 #define APP_VERSION "0.0.0"
 #endif
 #ifndef UPDATE_REPO
-#define UPDATE_REPO "DiGiTaLAnGeL92/AnikkuNX"
+#define UPDATE_REPO "titin-98/EspanikkuNX"
 #endif
 
 namespace updater {
 
 namespace {
-std::string nroPath = "sdmc:/switch/AnikkuNX/AnikkuNX.nro";
+std::string nroPath = "sdmc:/switch/EspanikkuNX/EspanikkuNX.nro";
 
 std::vector<int> parts(std::string v) {
     if (!v.empty() && (v[0] == 'v' || v[0] == 'V')) v = v.substr(1);
@@ -42,7 +42,7 @@ std::string currentVersion() { return APP_VERSION; }
 bool isNewer(const std::string& a, const std::string& b) { return parts(a) > parts(b); }
 
 void setAppPath(const std::string& argv0) {
-    // hbloader passa il percorso completo, es. "sdmc:/switch/AnikkuNX/AnikkuNX.nro"
+    // hbloader passa il percorso completo, es. "sdmc:/switch/EspanikkuNX/EspanikkuNX.nro"
     if (argv0.rfind("sdmc:/", 0) == 0 && argv0.size() > 4 && argv0.substr(argv0.size() - 4) == ".nro")
         nroPath = argv0;
 }
@@ -50,7 +50,7 @@ void setAppPath(const std::string& argv0) {
 std::string appPath() { return nroPath; }
 
 Release latest() {
-    http::Headers h = {{"Accept", "application/vnd.github+json"}, {"User-Agent", "AnikkuNX-updater"}};
+    http::Headers h = {{"Accept", "application/vnd.github+json"}, {"User-Agent", "EspanikkuNX-updater"}};
     http::Response r = http::request("GET", "https://api.github.com/repos/" UPDATE_REPO "/releases/latest", h, "", 20);
     if (r.status == 404) throw http::Error(tr("Nessuna release pubblicata"));
     if (r.status < 200 || r.status >= 300) throw http::Error("GitHub: HTTP " + std::to_string(r.status));

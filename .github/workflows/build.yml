@@ -1,4 +1,4 @@
-name: Build AnikkuNX
+name: Build EspanikkuNX
 
 on:
   push:
@@ -16,25 +16,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build AnikkuNX.nro
+      - name: Build EspanikkuNX.nro
         run: docker run --rm -v "$PWD":/data devkitpro/devkita64 bash /data/switch/scripts/build_switch.sh
 
       - uses: actions/upload-artifact@v4
         with:
-          name: AnikkuNX-nro
-          path: dist/AnikkuNX.nro
+          name: EspanikkuNX-nro
+          path: dist/EspanikkuNX.nro
 
       - name: Release notes from CHANGELOG.md
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           VER="${GITHUB_REF_NAME#v}"
           awk -v v="$VER" '/^## /{p=($2==v); next} p' CHANGELOG.md > notes.md
-          [ -s notes.md ] || echo "AnikkuNX $GITHUB_REF_NAME" > notes.md
+          [ -s notes.md ] || echo "EspanikkuNX $GITHUB_REF_NAME" > notes.md
           cat notes.md
 
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/AnikkuNX.nro
+          files: dist/EspanikkuNX.nro
           body_path: notes.md

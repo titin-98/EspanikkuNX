@@ -114,7 +114,7 @@ void runCheck(bool manual, int retriesLeft) {
             content->setPadding(30, 40, 20, 40);
             content->setWidth(760);
             auto* head = new brls::Label();
-            head->setText(tr("E' disponibile AnikkuNX v{} (installata: v{}).", rel.version, cur));
+            head->setText(tr("E' disponibile EspanikkuNX v{} (installata: v{}).", rel.version, cur));
             head->setFontSize(22);
             head->setHorizontalAlign(brls::HorizontalAlign::CENTER);
             head->setMarginBottom(14);
@@ -202,7 +202,7 @@ brls::View* UpdateActivity::createContentView() {
     });
     box->addView(closeBtn);
 
-    box->getAppletFrameItem()->title = "AnikkuNX";
+    box->getAppletFrameItem()->title = "EspanikkuNX";
     auto* frame = new brls::AppletFrame(box);
     frame->registerAction(tr("Annulla"), brls::BUTTON_B, [this](brls::View*) {
         if (mustQuit)

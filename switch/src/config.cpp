@@ -10,10 +10,10 @@
 
 std::string Config::configDir() const {
 #ifdef __SWITCH__
-    return "sdmc:/switch/AnikkuNX";
+    return "sdmc:/switch/EspanikkuNX";
 #else
     const char* home = getenv("HOME");
-    return std::string(home ? home : ".") + "/.config/AnikkuNX";
+    return std::string(home ? home : ".") + "/.config/EspanikkuNX";
 #endif
 }
 

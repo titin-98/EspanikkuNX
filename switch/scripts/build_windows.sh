@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila AnikkuNX.nro su Windows dentro MSYS2 con devkitPro (usato da compila-switch.bat).
+# Compila EspanikkuNX.nro su Windows dentro MSYS2 con devkitPro (usato da compila-switch.bat).
 # Uso: bash build_windows.sh <fase> <cartella-progetto>
 set -e
 PHASE="$1"
@@ -50,9 +50,9 @@ build)
   export PATH="$DEVKITPRO/tools/bin:$DEVKITA64/bin:$DEVKITPRO/portlibs/switch/bin:$PATH"
   bash switch/scripts/setup.sh
   cmake -S switch -B switch/build-switch -G "Unix Makefiles" -DPLATFORM_SWITCH=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_DEPENDS_USE_COMPILER=OFF
-  make -C switch/build-switch AnikkuNX.nro -j"$(nproc)"
+  make -C switch/build-switch EspanikkuNX.nro -j"$(nproc)"
   mkdir -p dist
-  cp switch/build-switch/AnikkuNX.nro dist/
-  echo ">> FATTO: dist/AnikkuNX.nro"
+  cp switch/build-switch/EspanikkuNX.nro dist/
+  echo ">> FATTO: dist/EspanikkuNX.nro"
   ;;
 esac

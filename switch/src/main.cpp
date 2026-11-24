@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
     api::init(Config::instance().configDir());
     downloads::init(Config::instance().configDir());  // coda dei download offline (thread dedicato)
 
-    brls::Application::createWindow("AnikkuNX");
+    brls::Application::createWindow("EspanikkuNX");
 #ifdef __SWITCH__
     // (dopo createWindow: prima non esistono ne' il contesto grafico ne' i font di sistema)
     // Font predefinito = font standard della console (vedi scripts/setup.sh): i caratteri che non ha

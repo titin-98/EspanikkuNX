@@ -10,7 +10,7 @@
 #include "util/platform.hpp"
 
 #ifndef UPDATE_REPO
-#define UPDATE_REPO "DiGiTaLAnGeL92/AnikkuNX"
+#define UPDATE_REPO "titin-98/EspanikkuNX"
 #endif
 #define UPDATE_REPO_DISPLAY UPDATE_REPO
 #include "config.hpp"
@@ -49,11 +49,11 @@ namespace {
 
 void showFullMemoryHelp() {
     auto* d = new brls::Dialog(tr(
-        "AnikkuNX e' stata avviata in modalita' applet (dall'Album): la memoria disponibile e' molto ridotta e "
+        "EspanikkuNX e' stata avviata in modalita' applet (dall'Album): la memoria disponibile e' molto ridotta e "
         "i video possono bloccarsi o chiudere l'app.\n\n"
         "Per avere la memoria piena:\n"
-        "\xE2\x80\xA2 tieni premuto R mentre avvii un gioco qualsiasi, poi apri AnikkuNX dal menu homebrew;\n"
-        "\xE2\x80\xA2 oppure crea un forwarder con Sphaira (X su AnikkuNX > Install Forwarder) e avviala dalla Home."));
+        "\xE2\x80\xA2 tieni premuto R mentre avvii un gioco qualsiasi, poi apri EspanikkuNX dal menu homebrew;\n"
+        "\xE2\x80\xA2 oppure crea un forwarder con Sphaira (X su EspanikkuNX > Install Forwarder) e avviala dalla Home."));
     d->addButton(tr("OK"), [] {});
     d->open();
 }
@@ -524,11 +524,11 @@ SettingsTab::SettingsTab() {
     fwd->setDetailText("Sphaira");
     fwd->registerClickAction([](brls::View*) {
         auto* d = new brls::Dialog(tr(
-            "Puoi avviare AnikkuNX direttamente dalla schermata Home della console creando un forwarder con Sphaira:\n\n"
+            "Puoi avviare EspanikkuNX direttamente dalla schermata Home della console creando un forwarder con Sphaira:\n\n"
             "1. Apri Sphaira (il menu homebrew).\n"
-            "2. Seleziona AnikkuNX e premi X.\n"
+            "2. Seleziona EspanikkuNX e premi X.\n"
             "3. Scegli \"Installa forwarder\" (Install Forwarder) e conferma.\n\n"
-            "L'icona di AnikkuNX comparira' nella Home insieme ai giochi."));
+            "L'icona di EspanikkuNX comparira' nella Home insieme ai giochi."));
         d->addButton(tr("OK"), [] {});
         d->open();
         return true;
@@ -537,7 +537,7 @@ SettingsTab::SettingsTab() {
 
     auto* ver = new brls::DetailCell();
     ver->setText(tr("Versione"));
-    ver->setDetailText("AnikkuNX v" + updater::currentVersion());
+    ver->setDetailText("EspanikkuNX v" + updater::currentVersion());
     box->addView(ver);
 
     auto* upd = new brls::DetailCell();
@@ -571,7 +571,7 @@ SettingsTab::SettingsTab() {
     about->setText(tr(
         "App autonoma per Nintendo Switch con fonti italiane, inglesi e multilingua "
         "(porting delle estensioni di Anikku/Aniyomi).\n"
-        "Libreria e progressi sono salvati in sdmc:/switch/AnikkuNX. Avvia l'app tenendo premuto R su un gioco "
+        "Libreria e progressi sono salvati in sdmc:/switch/EspanikkuNX. Avvia l'app tenendo premuto R su un gioco "
         "per avere piu' memoria."));
     about->setFontSize(15);
     about->setTextColor(nvgRGB(150, 150, 160));

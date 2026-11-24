@@ -3,6 +3,13 @@
 Ogni versione ha una sezione `## x.y.z`: il testo viene usato così com'è per la release su GitHub,
 per il messaggio del commit e per la finestra di aggiornamento dentro l'app.
 
+## 0.6.4.1
+
+EspanikkuNX: mod de AnikkuNX 0.6.4 que se instala como una app aparte.
+
+- Corregido el cierre de la app al buscar videos en las fuentes en español (Jkanime, AnimeAV1, Latanime, VerAni.me...): las variables `thread_local` de `randomHex`, `randomAlnum`, `redirectHg` (Dooplay) y FunAnimeTV leían el registro TPIDR_EL0, que en la Switch vale 0, y la app se cerraba al resolver Doodstream, hgcloud y otros servidores
+- Nombre, carpeta de datos (`sdmc:/switch/EspanikkuNX`), icono y actualizaciones (`titin-98/EspanikkuNX`) propios: se puede tener instalada junto a AnikkuNX sin que se pisen
+
 ## 0.6.4
 
 - Testi arabi: le lettere ora sono collegate tra loro e si leggono da destra a sinistra (titoli, descrizioni, nomi degli episodi e titolo nel player)

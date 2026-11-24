@@ -40,7 +40,7 @@ std::atomic<int> activeClients{0};
 std::string logPath;
 std::mutex logMutex;
 
-/** Diario del proxy (sdmc:/switch/AnikkuNX/proxy.log): utile se qualcosa va storto sulla console. */
+/** Diario del proxy (sdmc:/switch/EspanikkuNX/proxy.log): utile se qualcosa va storto sulla console. */
 void proxyLog(const std::string& msg) {
     std::lock_guard<std::mutex> lock(logMutex);
     if (logPath.empty()) return;

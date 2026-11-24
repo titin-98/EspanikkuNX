@@ -13,7 +13,7 @@ struct Release {
     std::string version;  // es. "0.3.2"
     std::string tag;      // es. "v0.3.2"
     std::string notes;    // testo della release
-    std::string nroUrl;   // link diretto a AnikkuNX.nro
+    std::string nroUrl;   // link diretto a EspanikkuNX.nro
     long long size = 0;
 };
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila AnikkuNX.nro. Va eseguito dentro l'immagine Docker devkitpro/devkita64:
+# Compila EspanikkuNX.nro. Va eseguito dentro l'immagine Docker devkitpro/devkita64:
 #   docker run --rm -v "$PWD":/data devkitpro/devkita64 bash /data/switch/scripts/build_switch.sh
 set -e
 cd "$(dirname "$0")/.."
@@ -24,7 +24,7 @@ for PKG in "${PKGS[@]}"; do
   dkp-pacman -U --noconfirm "/tmp/pkgs/${PKG}"
 done
 cmake -B build-switch -DPLATFORM_SWITCH=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_DEPENDS_USE_COMPILER=OFF
-make -C build-switch AnikkuNX.nro -j"$(nproc)"
+make -C build-switch EspanikkuNX.nro -j"$(nproc)"
 mkdir -p ../dist
-cp build-switch/AnikkuNX.nro ../dist/
-echo "Fatto: dist/AnikkuNX.nro"
+cp build-switch/EspanikkuNX.nro ../dist/
+echo "Fatto: dist/EspanikkuNX.nro"

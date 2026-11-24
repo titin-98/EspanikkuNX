@@ -37,7 +37,7 @@ std::atomic<int> generation{0};
 
 const char* PAGE = R"HTML(<!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AnikkuNX - aggiornamento debug</title>
+<title>EspanikkuNX - aggiornamento debug</title>
 <style>
 body{font-family:system-ui,sans-serif;background:#1e1e22;color:#eee;display:flex;justify-content:center;padding:40px 16px}
 .box{max-width:460px;width:100%;background:#2a2a30;border-radius:12px;padding:24px}
@@ -48,8 +48,8 @@ button:disabled{opacity:.5}
 progress{width:100%;height:18px}
 #msg{margin-top:12px;min-height:1.4em}
 </style></head><body><div class="box">
-<h1>AnikkuNX &middot; invia un nuovo .nro</h1>
-<label>File AnikkuNX.nro</label><input type="file" id="f" accept=".nro">
+<h1>EspanikkuNX &middot; invia un nuovo .nro</h1>
+<label>File EspanikkuNX.nro</label><input type="file" id="f" accept=".nro">
 <label>Codice mostrato sulla console</label><input id="pin" inputmode="numeric" maxlength="4" placeholder="1234">
 <button id="go">Invia alla console</button>
 <progress id="p" max="100" value="0"></progress>
