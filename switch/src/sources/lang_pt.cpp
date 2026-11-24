@@ -2083,7 +2083,10 @@ class FunAnimeTV : public PtBase {
     std::string signSalt, arrayKey;
 
     static std::string requestBody(const std::string& method, const ojson& extra, const std::string& salt0) {
-        static thread_local std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr));
+        // niente thread_local: sulla Switch TPIDR_EL0 vale 0 nei thread di lavoro e l'accesso va in crash
+        static std::mutex rngMutex;
+        static std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr));
+        std::lock_guard<std::mutex> rngLock(rngMutex);
         std::string salt = std::to_string(std::uniform_int_distribution<int>(1, 900)(rng));
         ojson o = ojson::object();
         o["salt"] = salt;

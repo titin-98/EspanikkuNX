@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include <algorithm>
+#include <mutex>
 #include <cctype>
 #include <chrono>
 #include <cstdio>
@@ -769,7 +770,10 @@ std::string redirectHg(std::string url) {
     static const char* redirected[] = {"hanerix.com", "vibuxer.com", "audinifer.com", "masukestin.com"};
     for (const char* d : {"hgcloud.to", "hglink.to"}) {
         if (!contains(url, d)) continue;
-        static thread_local std::mt19937 rng((unsigned)std::random_device{}());
+        // niente thread_local: sulla Switch TPIDR_EL0 vale 0 nei thread di lavoro e l'accesso va in crash
+        static std::mutex rngMutex;
+        static std::mt19937 rng((unsigned)std::random_device{}());
+        std::lock_guard<std::mutex> rngLock(rngMutex);
         url = replaceAll(url, d, redirected[rng() % 4]);
         break;
     }

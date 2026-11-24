@@ -6,6 +6,7 @@
 #include <nlohmann/json.hpp>
 
 #include <algorithm>
+#include <mutex>
 #include <cctype>
 #include <cstdlib>
 #include <ctime>
@@ -104,7 +105,10 @@ int qualityOf(const std::string& title) {
 }
 
 std::string randomHex(size_t len) {
-    static thread_local std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr));
+    // niente thread_local: sulla Switch TPIDR_EL0 vale 0 nei thread di lavoro e l'accesso va in crash
+    static std::mutex rngMutex;
+    static std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr));
+    std::lock_guard<std::mutex> rngLock(rngMutex);
     static const char* hex = "0123456789abcdef";
     std::string out;
     for (size_t i = 0; i < len; i++) out += hex[rng() % 16];
@@ -112,7 +116,10 @@ std::string randomHex(size_t len) {
 }
 
 std::string randomAlnum(size_t len) {
-    static thread_local std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr) ^ 0x5bd1e995u);
+    // niente thread_local: sulla Switch TPIDR_EL0 vale 0 nei thread di lavoro e l'accesso va in crash
+    static std::mutex rngMutex;
+    static std::mt19937 rng((unsigned)std::random_device{}() ^ (unsigned)std::time(nullptr) ^ 0x5bd1e995u);
+    std::lock_guard<std::mutex> rngLock(rngMutex);
     static const char* chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     std::string out;
     for (size_t i = 0; i < len; i++) out += chars[rng() % 62];
